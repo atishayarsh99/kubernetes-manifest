@@ -16,6 +16,13 @@ spec:
       containers:
       - name: my-container
         image: rahul29d/aks
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
+      strategy:
+        type: RollingUpdate
+        rollingUpdate:
+          maxUnavailable: 1
+          maxSurge: 1
+
 
