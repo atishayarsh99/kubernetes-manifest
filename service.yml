@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: js-label
-  type: NodePort
+  
   ports:
     - port: 80
       targetPort: 3000
