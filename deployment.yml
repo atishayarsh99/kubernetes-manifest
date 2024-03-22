@@ -1,23 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-deployment
+  name: my-deployment
   namespace: backend-deployment
-  labels:
-    app: js-label
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: js-label
+      app: my-app
   template:
     metadata:
-      name: crm-pod
-      labels: 
-        app: js-label
+      labels:
+        app: my-app
     spec:
       containers:
-      - name: crm-ctr
+      - name: my-container
         image: rahul29d/aks
         ports:
-            - containerPort: 3000
+        - containerPort: 3000
+
