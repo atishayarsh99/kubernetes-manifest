@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
-  namespace: 3tier
+  name: frontend
+  namespace: your-namespace-name
 spec:
   replicas: 1
   selector:
@@ -14,7 +14,11 @@ spec:
         app: frontend
     spec:
       containers:
-        - name: frontend
-          image: <your-frontend-image>
-          ports:
-            - containerPort: 5173
+      - name: frontend
+        image: your-frontend-image:tag
+        ports:
+        - containerPort: 5173
+        env:
+        - name: REACT_APP_BACKEND_URL
+          value: "http://backend:3000"
+

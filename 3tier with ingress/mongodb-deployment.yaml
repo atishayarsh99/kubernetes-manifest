@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb-deployment
-  namespace: 3tier
+  name: mongodb
+  namespace: your-namespace-name
 spec:
   replicas: 1
   selector:
@@ -14,7 +14,13 @@ spec:
         app: mongodb
     spec:
       containers:
-        - name: mongodb
-          image: mongo
-          ports:
-            - containerPort: 27017
+      - name: mongodb
+        image: mongo:latest
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: your-username
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: your-password
+
