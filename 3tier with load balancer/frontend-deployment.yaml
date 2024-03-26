@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: your-frontend-image:tag
+        image: rahul29d/3-tier-frontend
         ports:
         - containerPort: 5173
         env:
