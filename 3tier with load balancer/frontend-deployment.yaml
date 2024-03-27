@@ -17,9 +17,9 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: rahul29d/3-tier-frontend
+        image: rahul29d/2tier-frontend
         ports:
-        - containerPort: 5173
+        - containerPort: 3000
         env:
-        - name: VITE_BASE_URL
-          value: "http://backend:3000"
+        - name: REACT_APP_BACKEND_URL
+          value: "http://backend-svc:3500"
