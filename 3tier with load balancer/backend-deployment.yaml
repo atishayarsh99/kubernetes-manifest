@@ -22,4 +22,4 @@ spec:
         - containerPort: 3500
         env:
         - name: MONGO_CONN_STR
-          value: "mongodb://ati:ati12345@mongodb-svc:27017/admin"
+          value: "mongodb://ati:ati12345@mongodb:27017/admin"
