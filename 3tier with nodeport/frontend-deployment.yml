@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: rahul29d/3-tier-frontend
+          ports:
+            - containerPort: 5173 # Assuming your frontend listens on port 80
+          env:
+            - name: BVITE_BASE_URL
+              value: "http://backend-service:3000" # Use the service name of your backend

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: rahul29d/3-tier-backend
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MONGODB
+              value: "mongodb://atc:atc12345@mongodb-service:27017/admin"
